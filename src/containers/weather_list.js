@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
+import GoogleMaps from '../components/google_maps';
 //import { Sparklines, SparklinesLine } from "react-sparklines";
 import Chart from '../components/chart';
 class WeatherList extends Component {
@@ -28,10 +29,10 @@ class WeatherList extends Component {
             {
                return value.main.humidity
             }
-
+            const { lon, lat } = cityData.city.coord;
             return (
             <tr key={ name }>
-            <td>{name} </td>
+             <td><GoogleMaps lon={lon} lat={lat}/> </td>
              <td>
                     <Chart data={temperatures} color="red" units="Kelvin"/>
             </td>
