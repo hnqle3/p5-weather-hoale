@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { Sparklines, SparklinesLine } from "react-sparklines";
+//import { Sparklines, SparklinesLine } from "react-sparklines";
+import Chart from '../components/chart';
 class WeatherList extends Component {
 
  
         renderWeather(cityData){
             const name = cityData.city.name;
 
-            const temps= cityData.list.map(findTemps)
+            const temperatures= cityData.list.map(findTemps)
 
             function findTemps(value)
             {
@@ -31,35 +32,14 @@ class WeatherList extends Component {
             return (
             <tr key={ name }>
             <td>{name} </td>
-            <td>
-                <div>
-                    <Sparklines
-                    svgHeight={120}
-                    svgWidth={180}
-                    data={temps}>
-                    <SparklinesLine color="red" />
-                    </Sparklines>
-                </div>
+             <td>
+                    <Chart data={temperatures} color="red" units="Kelvin"/>
             </td>
             <td>
-            <div>
-                    <Sparklines
-                    svgHeight={120}
-                    svgWidth={180}
-                    data={pressures}>
-                    <SparklinesLine color="blue" />
-                    </Sparklines>
-                </div>
+                    <Chart data={pressures} color="blue" units="hPa"/>
             </td>
             <td>
-                <div>
-                    <Sparklines
-                    svgHeight={120}
-                    svgWidth={180}
-                    data={humidities}>
-                    <SparklinesLine color="green" />
-                    </Sparklines>
-                </div>
+                    <Chart data={humidities} color="green" units="%"/>
             </td>
             </tr>
             )
