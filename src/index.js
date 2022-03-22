@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // import Bootstrap CSS library
 import './index.css'
 import {createStore, applyMiddleware, compose} from 'redux'
 import {Provider} from 'react-redux'
-import {composeWithDevTools} from 'redux-devtools-extension'
+//import {composeWithDevTools} from 'redux-devtools-extension'
 import ReduxPromise from 'redux-promise'
 
 import rootReducer from './reducers'
