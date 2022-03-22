@@ -12,7 +12,10 @@ import ReduxPromise from 'redux-promise'
 
 import rootReducer from './reducers'
 //might be {}
-const store = createStore(rootReducer,{},composeWithDevTools(applyMiddleware(ReduxPromise)))
+const store = createStore(rootReducer,{},
+  //composeWithDevTools(
+    applyMiddleware(ReduxPromise))
+    //)
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
