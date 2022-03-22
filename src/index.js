@@ -14,10 +14,10 @@ import rootReducer from './reducers'
 //might be {}
 const store = createStore(rootReducer,{},
   //composeWithDevTools(
-    //applyMiddleware(
+    applyMiddleware(
       ReduxPromise
       //)
-      )
+      ))
     //)
 ReactDOM.render(
   <React.StrictMode>
